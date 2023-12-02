@@ -1,19 +1,64 @@
 .friend {
   display: flex;
   flex-direction: row;
-  gap: 24px;
-  justify-content: center;
+  gap: 34px;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
-  height: 100%;
+  width: 500px;
+  padding: 12px 30px;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  margin: 12px 0;
 }
 
 .list-friend {
   display: flex;
   flex-direction: column;
+  width: 200px;
 }
 
 .friend-image {
   border-radius: 100%;
   object-fit: contain;
+}
+
+.red {
+  color: red;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.green {
+  color: green;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.select-button {
+  background-color: rgb(255, 203, 80);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #2c2c2c;
+  outline: none;
+  border: none;
+}
+
+.form-add-friend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 500px;
+  padding: 12px 30px;
+  border-radius: 12px;
+  margin: 24px 0;
+  background-color: rgb(249, 234, 217);
+}
+
+.form-split-bill {
+  padding: 16px;
+  background-color: rgb(249, 234, 217);
+  width: 600px;
+  height: 330px;
+  border-radius: 12px;
 }

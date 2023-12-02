@@ -8,5 +8,10 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: 1.5;
   color: #2c2c2c;
-  height: 100vh;
+}
+
+.App {
+  display: flex;
+  margin: 16px;
+  gap: 32px;
 }

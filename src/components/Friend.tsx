@@ -1,5 +1,5 @@
 import "../style/friend.css";
-
+import Button from "./AddButton";
 interface FriendProps {
   id: number;
   name: string;
@@ -13,8 +13,19 @@ const Friend: React.FC<FriendProps> = ({ id, image, name, balance }) => {
       <img src={image} alt={name} className="friend-image" width={48} />
       <div className="list-friend">
         <h3>{name}</h3>
-        <p>{balance}</p>
+        {balance < 0 && (
+          <p className="red">
+            You owe {name} ${Math.abs(balance)}
+          </p>
+        )}
+        {balance > 0 && (
+          <p className="green">
+            {name} owes you ${Math.abs(balance)}
+          </p>
+        )}
+        {balance === 0 && <p className="blue">You are even</p>}
       </div>
+      <Button>Select</Button>
     </div>
   );
 };
