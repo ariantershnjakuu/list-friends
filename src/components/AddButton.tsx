@@ -8,7 +8,9 @@ interface AddButtonProps {
 const AddButton: React.FC<AddButtonProps> = ({ children }) => {
   return (
     <div>
-      <button className="select-button">{children}</button>
+      <button type="submit" className="select-button">
+        {children}
+      </button>
     </div>
   );
 };
