@@ -1,4 +1,4 @@
-import Friend from "./Friend";
+import Friends from "./Friend";
 
 export type Friend = {
   id: number;
@@ -21,7 +21,7 @@ const FriendList: React.FC<FriendListProps> = ({
   return (
     <>
       {friends.map((element) => (
-        <Friend
+        <Friends
           friend={element}
           onSelection={onSelection}
           selectedFriend={selectedFriend}
