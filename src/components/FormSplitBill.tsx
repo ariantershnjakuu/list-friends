@@ -2,12 +2,14 @@ import React from "react";
 import "../style/friend.css";
 import Button from "./AddButton";
 
-interface FormSplitBillProps {}
+interface FormSplitBillProps {
+  selectedFriend: any;
+}
 
-const FormSplitBill: React.FC<FormSplitBillProps> = () => {
+const FormSplitBill: React.FC<FormSplitBillProps> = ({ selectedFriend }) => {
   return (
-    <div className="form-split-bill">
-      <span>Split a bill with clark</span>
+    <form className="form-split-bill">
+      <span>Split a bill with {selectedFriend.name}</span>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div>
           <label htmlFor="">Bill value</label>
@@ -18,19 +20,19 @@ const FormSplitBill: React.FC<FormSplitBillProps> = () => {
           <input type="text" />
         </div>
         <div>
-          <label htmlFor="">X's expense</label>
+          <label htmlFor="">{selectedFriend.name}'s expense</label>
           <input type="text" disabled />
         </div>
         <div>
           <label htmlFor="">Who is paying the bill?</label>
           <select name="" id="">
             <option value="">You</option>
-            <option value="">X</option>
+            <option value="">{selectedFriend.name}</option>
           </select>
         </div>
       </div>
       <Button>Split bill</Button>
-    </div>
+    </form>
   );
 };
 

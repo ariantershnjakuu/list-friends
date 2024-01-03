@@ -9,18 +9,22 @@ export type Friend = {
 
 interface FriendListProps {
   friends: Friend[];
+  selectedFriend: any;
+  onSelection: (friend: any) => void;
 }
 
-const FriendList: React.FC<FriendListProps> = ({ friends }) => {
+const FriendList: React.FC<FriendListProps> = ({
+  friends,
+  onSelection,
+  selectedFriend,
+}) => {
   return (
     <>
       {friends.map((element) => (
         <Friend
-          id={element.id}
-          name={element.name}
-          balance={element.balance}
-          image={element.image}
-          key={element.id}
+          friend={element}
+          onSelection={onSelection}
+          selectedFriend={selectedFriend}
         />
       ))}
     </>

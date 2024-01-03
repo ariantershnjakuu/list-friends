@@ -62,3 +62,10 @@
   height: 330px;
   border-radius: 12px;
 }
+
+.selected {
+  background-color: rgb(252, 241, 227);
+  transform: scale(1.01);
+  transition: all 0.1s ease-in-out;
+  border: none;
+}

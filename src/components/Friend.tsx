@@ -1,31 +1,42 @@
 import "../style/friend.css";
 import Button from "./AddButton";
 interface FriendProps {
-  id: number;
-  name: string;
-  image: string;
-  balance: number;
+  friend: any;
+  onSelection: (friend: any) => void;
+  selectedFriend: any;
 }
 
-const Friend: React.FC<FriendProps> = ({ id, image, name, balance }) => {
+const Friend: React.FC<FriendProps> = ({
+  friend,
+  onSelection,
+  selectedFriend,
+}) => {
+  const isSelected = selectedFriend?.id === friend.id;
   return (
-    <div key={id} className="friend">
-      <img src={image} alt={name} className="friend-image" width={48} />
+    <div key={friend.id} className={`friend ${isSelected ? "selected" : ""}`}>
+      <img
+        src={friend.image}
+        alt={friend.name}
+        className="friend-image"
+        width={48}
+      />
       <div className="list-friend">
-        <h3>{name}</h3>
-        {balance < 0 && (
+        <h3>{friend.name}</h3>
+        {friend.balance < 0 && (
           <p className="red">
-            You owe {name} ${Math.abs(balance)}
+            You owe {friend.name} ${Math.abs(friend.balance)}
           </p>
         )}
-        {balance > 0 && (
+        {friend.balance > 0 && (
           <p className="green">
-            {name} owes you ${Math.abs(balance)}
+            {friend.name} owes you ${Math.abs(friend.balance)}
           </p>
         )}
-        {balance === 0 && <p className="blue">You are even</p>}
+        {friend.balance === 0 && <p className="blue">You are even</p>}
       </div>
-      <Button>Select</Button>
+      <span onClick={() => onSelection(friend)}>
+        <Button>{isSelected ? "Close" : "Selected"}</Button>
+      </span>
     </div>
   );
 };
