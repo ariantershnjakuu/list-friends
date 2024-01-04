@@ -22,6 +22,7 @@ const FriendList: React.FC<FriendListProps> = ({
     <>
       {friends.map((element) => (
         <Friends
+          key={element.id}
           friend={element}
           onSelection={onSelection}
           selectedFriend={selectedFriend}

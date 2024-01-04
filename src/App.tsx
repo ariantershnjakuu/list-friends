@@ -7,10 +7,17 @@ import "./index.css";
 import FormSplitBill from "./components/FormSplitBill";
 import { useState } from "react";
 
+type Friend = {
+  id: number;
+  name: string;
+  image: string;
+  balance: number;
+};
+
 function App() {
   const [showAdd, setShowAdd] = useState(false);
   const [friend, setFriend] = useState(initialFriend);
-  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [selectedFriend, setSelectedFriend] = useState<Friend | null>(null);
 
   const handleShowAdd = () => {
     setShowAdd((show) => !show);
@@ -29,6 +36,17 @@ function App() {
     setShowAdd(false);
   };
 
+  const handleSplitBill = (bill: any) => {
+    setFriend((friends: any) => {
+      return friends.map((friend: any) =>
+        friend.id === selectedFriend?.id
+          ? { ...friend, balance: friend.balance + bill }
+          : friend
+      );
+    });
+    setSelectedFriend(null);
+  };
+
   return (
     <div className="App">
       <div style={{ padding: "0 0 0 24px" }}>
@@ -42,7 +60,12 @@ function App() {
           <Button>{showAdd ? "Close" : "Add friend"}</Button>
         </div>
       </div>
-      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
+      {selectedFriend && (
+        <FormSplitBill
+          selectedFriend={selectedFriend}
+          onSplitBill={handleSplitBill}
+        />
+      )}
     </div>
   );
 }

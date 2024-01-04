@@ -69,3 +69,20 @@
   transition: all 0.1s ease-in-out;
   border: none;
 }
+
+.form-split-element {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-split-element input {
+  border-radius: 12px;
+  outline: none;
+  padding: 4px 8px;
+  border: 1px solid #eaeaea;
+  background-color: rgb(255, 221, 141);
+}
