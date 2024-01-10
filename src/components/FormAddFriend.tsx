@@ -25,7 +25,10 @@ const FormAddFriend: React.FC<FormAddFriendProps> = ({ onAddFriend }) => {
   return (
     <div>
       <form action="" className="form-add-friend" onSubmit={handleSubmit}>
-        <div style={{ display: "flex", gap: "32px" }}>
+        <div
+          style={{ display: "flex", gap: "32px" }}
+          className="form-split-element"
+        >
           <label htmlFor="" style={{ width: "120px" }}>
             Friend name
           </label>
@@ -37,7 +40,10 @@ const FormAddFriend: React.FC<FormAddFriendProps> = ({ onAddFriend }) => {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div style={{ display: "flex", gap: "32px" }}>
+        <div
+          style={{ display: "flex", gap: "32px" }}
+          className="form-split-element"
+        >
           <label htmlFor="" style={{ width: "120px" }}>
             Image URL
           </label>
